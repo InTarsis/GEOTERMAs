@@ -62,7 +62,7 @@ if input_method == "Manual Entry":
     # the number input field
     col_main = st.columns([1, 1], gap='small')
     with col_main[0]:
-        n = st.number_input("Number of measurements:", min_value=1, value=5, step=1, key="num_measurements")
+        n = st.number_input("Number of measurements:", min_value=1, value=7, step=1, key="num_measurements")
 
     # Input fields for time and temperature
     for i in range(n):
