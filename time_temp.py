@@ -36,7 +36,7 @@ st.markdown(
     """
     <style>
     div[data-testid="stNumberInput"] {
-        max-width: 120px !important; /* Ajusta el ancho de las cajas */
+        max-width: 110px !important; /* Ajusta el ancho de las cajas */
     }
     </style>
     """,
