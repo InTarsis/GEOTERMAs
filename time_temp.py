@@ -36,7 +36,7 @@ st.markdown(
     """
     <style>
     div[data-testid="stNumberInput"] {
-        max-width: 110px !important; /* Ajusta el ancho de las cajas */
+        max-width: 130px !important; /* Ajusta el ancho de las cajas */
     }
     </style>
     """,
@@ -55,7 +55,7 @@ if input_method == "Manual Entry":
     st.write("Enter time and temp values manually:")
     
     # Center the number input field
-    col_main = st.columns([1, 2, 1])
+    col_main = st.columns([1, 1])
     with col_main[1]:
         n = st.number_input("Number of measurements:", min_value=1, value=5, step=1, key="num_measurements")
 
