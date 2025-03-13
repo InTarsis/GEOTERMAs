@@ -71,12 +71,6 @@ if input_method == "Manual Entry":
             time.append(st.number_input(f"Time (s) {i+1}", key=f"time_{i}", step=1, format="%d"))
         with col2:
             temp.append(st.number_input(f"Temp {i+1}", key=f"temp_{i}", format="%.3f"))
-    
-    if st.button("Clear Entries"):
-        if st.confirm("Are you sure you want to clear all entries?"):
-            time.clear()
-            temp.clear()
-            st.experimental_rerun()
 
 elif input_method == "Upload CSV":
     uploaded_file = st.file_uploader("Upload a CSV file with 'time' and 'temp' columns", type=["csv"])
