@@ -29,7 +29,20 @@ def fit_curve(time, temp):
     
     return T_eq, tau, rmse, r2, time_fine, fitted_temp_fine
 
-st.title("Geothermal Gradient Estimation")
+st.title("Temp vs Time")
+
+# Reduce input box width using CSS
+st.markdown(
+    """
+    <style>
+    div[data-testid="stNumberInput"] {
+        max-width: 150px !important; /* Ajusta el ancho de las cajas */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.write("Measure equilibrium temp using Newton's Law of Cooling")
 
 # Choose input method
@@ -40,10 +53,15 @@ temp = []
 
 if input_method == "Manual Entry":
     st.write("Enter time and temp values manually:")
-    n = st.number_input("Number of measurements:", min_value=1, value=5, step=1)
     
+    # Center the number input field
+    col_main = st.columns([1, 2, 1])
+    with col_main[1]:
+        n = st.number_input("Number of measurements:", min_value=1, value=5, step=1, key="num_measurements")
+
+    # Input fields for time and temperature
     for i in range(n):
-        col1, col2 = st.columns([0.15, 0.15])  # Make columns narrower
+        col1, col2 = st.columns([0.3, 0.3], gap='small')  # Reduce column spacing
         with col1:
             time.append(st.number_input(f"Time (s) {i+1}", key=f"time_{i}", step=1, format="%d"))
         with col2:
