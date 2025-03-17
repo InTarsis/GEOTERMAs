@@ -62,13 +62,14 @@ if input_method == "Manual Entry":
     # the number input field
     col_main = st.columns([1, 1], gap='small')
     with col_main[0]:
-        n = st.number_input("Number of measurements:", min_value=1, value=7, step=1, key="num_measurements")
+        n = st.number_input("Number of measurements:", min_value=1, value=9, step=1, key="num_measurements")
 
     # Input fields for time and temperature
+    default_time_values = [0, 10, 30, 60, 100, 150, 200, 250, 300]
     for i in range(n):
         col1, col2 = st.columns([1, 1], gap='small')  # Reduce column spacing
         with col1:
-            time.append(st.number_input(f"Time (s) {i+1}", key=f"time_{i}", step=1, format="%d"))
+            time.append(st.number_input(f"Time (s) {i+1}", key=f"time_{i}", step=1, format="%d", value=default_time_values[i] if i < len(default_time_values) else 0))
         with col2:
             temp.append(st.number_input(f"Temp {i+1}", key=f"temp_{i}", format="%.3f"))
 
